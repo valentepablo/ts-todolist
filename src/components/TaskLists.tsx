@@ -10,6 +10,10 @@ type props = {
 };
 
 const TaskLists = ({ todos, setTodos, completedTodos, setCompletedTodos }: props) => {
+  const handleDeleteAll = () => {
+    setCompletedTodos([]);
+  };
+
   return (
     <div className='max-w-xl mx-auto mt-8'>
       <Tab.Group>
@@ -43,6 +47,7 @@ const TaskLists = ({ todos, setTodos, completedTodos, setCompletedTodos }: props
             <p className='px-3 py-3 text-xs font-semibold text-green-600 rounded-lg bg-slate-300/30'>
               Completed tasks: {completedTodos.length}
             </p>
+
             <ul className={`${completedTodos.length < 1 ? 'mt-0' : ' mt-2 list-none'}`}>
               {completedTodos.map((todo) => (
                 <SingleTodo
@@ -55,6 +60,13 @@ const TaskLists = ({ todos, setTodos, completedTodos, setCompletedTodos }: props
                 />
               ))}
             </ul>
+            {completedTodos.length > 1 && (
+              <button
+                onClick={handleDeleteAll}
+                className='px-3 mt-2 text-sm text-red-400 underline rounded-lg'>
+                Delete all tasks
+              </button>
+            )}
           </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>

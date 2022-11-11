@@ -27,12 +27,12 @@ const ActionsButton = ({ todo, handleEdit, handleDelete, handleCompleted }: prop
         </Menu.Item>
         <Menu.Item>
           <div className='rounded-md ui-active:text-blue-600 ui-active:bg-slate-300/30'>
-            <DeleteButton todo={todo} handleDelete={handleDelete} />
+            <CompleteButton todo={todo} handleCompleted={handleCompleted} />
           </div>
         </Menu.Item>
         <Menu.Item>
           <div className='rounded-md ui-active:text-blue-600 ui-active:bg-slate-300/30'>
-            <CompleteButton todo={todo} handleCompleted={handleCompleted} />
+            <DeleteButton todo={todo} handleDelete={handleDelete} />
           </div>
         </Menu.Item>
       </Menu.Items>
