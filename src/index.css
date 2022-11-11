@@ -1,10 +1,10 @@
 @tailwind base;
 @tailwind components;
-@tailwind utilities;
 
-textarea,
 input[type='text'],
 input[type='button'],
 input[type='submit'] {
-  -webkit-border-radius: 0px;
+  -webkit-border-radius: 0;
 }
+
+@tailwind utilities;
