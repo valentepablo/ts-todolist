@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+textarea,
+input[type='text'],
+input[type='button'],
+input[type='submit'] {
+  border-radius: 0;
+}
