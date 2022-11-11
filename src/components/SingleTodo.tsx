@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import EditButton from './ActionButtons/EditButton';
-import DeleteButton from './ActionButtons/DeleteButton';
-import CompleteButton from './ActionButtons/CompleteButton';
 import { Todo } from '../todoModel';
+import ActionsButton from './ActionsButton';
 
 type props = {
   todo: Todo;
@@ -50,7 +48,7 @@ const SingleTodo = ({ todo, todos, setTodos, completedTodos, setCompletedTodos }
       <li
         key={todo.name}
         className={`${
-          editing ? 'px-0 py-0 pr-3' : 'px-3 py-4'
+          editing ? 'px-0 py-0 pr-3' : 'px-3 py-2.5'
         } flex items-center justify-between font-semibold rounded-lg text-slate-600 hover:bg-slate-700/5`}>
         {editing && !todo.completed ? (
           <input
@@ -64,19 +62,12 @@ const SingleTodo = ({ todo, todos, setTodos, completedTodos, setCompletedTodos }
           <span className={`${todo.completed && 'text-slate-500 line-through'}`}>{todo.name}</span>
         )}
         <div className='flex items-center gap-3'>
-          <span
-            onClick={() => handleEdit()}
-            className={`${todo.completed && 'pointer-events-none text-slate-400'}`}>
-            <EditButton />
-          </span>
-          <span onClick={() => handleDelete(todo.id)}>
-            <DeleteButton />
-          </span>
-          <span
-            onClick={() => handleCompleted(todo.id)}
-            className={`${todo.completed && 'pointer-events-none text-slate-400'}`}>
-            <CompleteButton />
-          </span>
+          <ActionsButton
+            handleEdit={handleEdit}
+            handleCompleted={handleCompleted}
+            handleDelete={handleDelete}
+            todo={todo}
+          />
         </div>
       </li>
     </form>
