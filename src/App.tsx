@@ -17,8 +17,6 @@ function App() {
     setTodo('');
   };
 
-  console.log(completedTodos);
-
   return (
     <div className='min-h-screen px-2 py-6 bg-gradient-to-r from-sky-500 to-blue-600'>
       <div className='max-w-5xl mx-auto'>
