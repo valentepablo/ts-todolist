@@ -14,7 +14,7 @@ const InputField = ({ todo, setTodo, handleAdd }: props) => {
         value={todo}
         onChange={(e) => setTodo(e.target.value)}
         placeholder='Enter a task...'
-        className='input'
+        className='w-64 p-2 input bg-slate-800 focus:outline-none text-slate-200 placeholder:text-slate-500'
       />
       <button
         type='submit'
