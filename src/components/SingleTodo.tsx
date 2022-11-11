@@ -50,15 +50,15 @@ const SingleTodo = ({ todo, todos, setTodos, completedTodos, setCompletedTodos }
       <li
         key={todo.name}
         className={`${
-          editing && 'px-0 py-0 pr-3'
-        } flex items-center justify-between px-3 py-4 font-semibold rounded-lg text-slate-600 hover:bg-slate-700/5`}>
+          editing ? 'px-0 py-0 pr-3' : 'px-3 py-4'
+        } flex items-center justify-between font-semibold rounded-lg text-slate-600 hover:bg-slate-700/5`}>
         {editing && !todo.completed ? (
           <input
             ref={inputRef}
             type='text'
             value={editedTodo}
             onChange={(e) => setEditedTodo(e.target.value)}
-            className='px-3 py-4 mr-4 rounded-lg grow focus:outline-none'
+            className='px-3 py-4 mr-2 rounded-lg grow focus:outline-none'
           />
         ) : (
           <span className={`${todo.completed && 'text-slate-500 line-through'}`}>{todo.name}</span>
