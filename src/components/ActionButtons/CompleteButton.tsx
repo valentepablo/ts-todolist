@@ -17,7 +17,7 @@ const CompleteButton = ({ todo, handleCompleted }: props) => {
       onClick={() => handleCompleted(todo.id)}
       className={`${
         todo.completed && 'pointer-events-none text-slate-400'
-      } flex items-center gap-2 w-full cursor-pointer p-2 text-left rounded-md ui-active:bg-slate-300/30`}>
+      } flex items-center gap-2 w-full cursor-pointer p-2 text-left rounded-md ui-active:text-blue-600 ui-active:bg-slate-300/30`}>
       <span>
         {isHover ? (
           <AiFillCheckSquare className='w-5 h-5 cursor-pointer' />

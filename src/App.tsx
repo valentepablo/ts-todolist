@@ -1,18 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import InputField from './components/InputField';
 import TaskLists from './components/TaskLists';
 import { Todo } from './todoModel';
 
 function App() {
   const [todo, setTodo] = useState<string>('');
-  const [todos, setTodos] = useState<Todo[]>([]);
-  const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
+  const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem('todos') || '') || []);
+  const [completedTodos, setCompletedTodos] = useState<Todo[]>(
+    JSON.parse(localStorage.getItem('completedTodos') || '') || []
+  );
 
   const handleAdd = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
     if (todo) {
-      setTodos([...todos, { id: Date.now(), name: todo, completed: false }]);
+      const createAt = new Date().toISOString();
+      setTodos([...todos, { id: Date.now(), name: todo, completed: false, created: createAt }]);
     }
     setTodo('');
   };

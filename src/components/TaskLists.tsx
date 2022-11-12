@@ -30,7 +30,7 @@ const TaskLists = ({ todos, setTodos, completedTodos, setCompletedTodos }: props
             <p className='px-3 py-3 text-xs font-semibold text-orange-400 rounded-md bg-slate-300/30'>
               Tasks in progress: {todos.length}
             </p>
-            <ul className={`${todos.length < 1 ? 'mt-0' : ' mt-2 list-none'}`}>
+            <ul className={`${todos.length < 1 ? 'mt-0' : 'mt-2 list-none space-y-4'}`}>
               {todos.map((todo) => (
                 <SingleTodo
                   todo={todo}
@@ -48,7 +48,7 @@ const TaskLists = ({ todos, setTodos, completedTodos, setCompletedTodos }: props
               Completed tasks: {completedTodos.length}
             </p>
 
-            <ul className={`${completedTodos.length < 1 ? 'mt-0' : ' mt-2 list-none'}`}>
+            <ul className={`${completedTodos.length < 1 ? 'mt-0' : ' mt-2 list-none space-y-2'}`}>
               {completedTodos.map((todo) => (
                 <SingleTodo
                   todo={todo}
@@ -63,7 +63,7 @@ const TaskLists = ({ todos, setTodos, completedTodos, setCompletedTodos }: props
             {completedTodos.length > 1 && (
               <button
                 onClick={handleDeleteAll}
-                className='px-3 mt-2 text-sm text-red-400 underline rounded-lg'>
+                className='px-3 mt-4 text-sm text-red-400 underline rounded-lg'>
                 Delete all tasks
               </button>
             )}
