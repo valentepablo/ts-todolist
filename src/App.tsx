@@ -5,10 +5,8 @@ import { Todo } from './todoModel';
 
 function App() {
   const [todo, setTodo] = useState<string>('');
-  const [todos, setTodos] = useState<Todo[]>(JSON.parse(localStorage.getItem('todos') || '') || []);
-  const [completedTodos, setCompletedTodos] = useState<Todo[]>(
-    JSON.parse(localStorage.getItem('completedTodos') || '') || []
-  );
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
 
   const handleAdd = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -18,6 +16,13 @@ function App() {
     }
     setTodo('');
   };
+
+  useEffect(() => {
+    let todos = localStorage.getItem('todos');
+    let completedTodos = localStorage.getItem('completedTodos');
+    todos && setTodos(JSON.parse(todos));
+    completedTodos && setCompletedTodos(JSON.parse(completedTodos));
+  }, []);
 
   return (
     <div className='min-h-screen px-2 py-6 bg-gradient-to-r from-sky-500 to-blue-600'>

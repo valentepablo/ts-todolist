@@ -66,7 +66,7 @@ const SingleTodo = ({ todo, todos, setTodos, completedTodos, setCompletedTodos }
               type='text'
               value={editedTodo}
               onChange={(e) => setEditedTodo(e.target.value)}
-              className='px-3 py-2 mr-2 rounded-lg grow focus:outline-none bg-slate-100/80'
+              className='px-3 py-2 mr-2 font-semibold rounded-lg grow focus:outline-none bg-slate-100/80'
             />
           ) : (
             <>
