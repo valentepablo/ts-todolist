@@ -1,5 +1,5 @@
 import { Tab } from '@headlessui/react';
-import { Todo } from '../todoModel';
+import { Todo } from './types/todoModel';
 import SingleTodo from './SingleTodo';
 
 type props = {

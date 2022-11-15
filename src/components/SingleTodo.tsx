@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { Todo } from '../todoModel';
+import { Todo } from './types/todoModel';
 import ActionsButton from './ActionsButton';
 import moment from 'moment';
 
@@ -30,7 +30,13 @@ const SingleTodo = ({ todo, todos, setTodos, completedTodos, setCompletedTodos }
   const handleCompleted = (id: number) => {
     setTodos(todos.filter((todo) => todo.id !== id));
     const completed: Todo[] = [];
-    completed.push({ id: todo.id, name: todo.name, completed: true });
+    completed.push({
+      id: todo.id,
+      name: todo.name,
+      completed: true,
+      created: todo.created,
+      priority: todo.priority,
+    });
     setCompletedTodos([...completedTodos, ...completed]);
   };
 
@@ -76,11 +82,19 @@ const SingleTodo = ({ todo, todos, setTodos, completedTodos, setCompletedTodos }
                 } font-semibold text-slate-600 mr-2`}>
                 {todo.name}
               </span>
-              {todo.created && (
-                <span className='mt-1 text-xs font-normal text-slate-400/80'>
-                  {moment(todo.created).fromNow()}
+              <div className='mt-1 text-xs font-normal text-slate-400/80'>
+                <span>{moment(todo.created).fromNow()}</span> ·{' '}
+                <span
+                  className={`px-1.5 py-0.5 text-xs capitalize font-semibold rounded ${
+                    todo.priority === 'low'
+                      ? 'bg-yellow-300/30 text-yellow-700/80'
+                      : todo.priority === 'medium'
+                      ? 'bg-orange-300/30 text-orange-700/80'
+                      : 'bg-purple-300/30 text-purple-700/80'
+                  }`}>
+                  {todo.priority}
                 </span>
-              )}
+              </div>
             </>
           )}
         </div>

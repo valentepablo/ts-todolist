@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AiOutlineCheckSquare, AiFillCheckSquare } from 'react-icons/ai';
-import { Todo } from '../../todoModel';
+import { Todo } from '../types/todoModel';
 
 type props = {
   todo: Todo;

@@ -1,5 +1,5 @@
 import { Menu } from '@headlessui/react';
-import { Todo } from '../todoModel';
+import { Todo } from './types/todoModel';
 import EditButton from './ActionButtons/EditButton';
 import DeleteButton from './ActionButtons/DeleteButton';
 import CompleteButton from './ActionButtons/CompleteButton';

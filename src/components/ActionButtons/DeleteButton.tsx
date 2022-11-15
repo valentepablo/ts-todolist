@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { AiFillDelete, AiOutlineDelete } from 'react-icons/ai';
-import { Todo } from '../../todoModel';
+import { Todo } from '../types/todoModel';
 
 type props = {
   todo: Todo;
