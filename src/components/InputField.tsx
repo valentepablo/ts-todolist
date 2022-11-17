@@ -21,16 +21,8 @@ const InputField = ({ todo, setTodo, handleAdd, priority, setPriority }: props) 
         className='w-full px-3 py-2 md:w-72 input bg-slate-800 focus:outline-none text-slate-200 placeholder:text-slate-500'
       />
 
-      <button
-        type='submit'
-        className='flex items-center px-5 py-2 font-bold uppercase border-l bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-600'>
-        <span>
-          <AiOutlinePlus className='text-white' />
-        </span>
-      </button>
-
       <Listbox value={priority} onChange={setPriority} as='div' className='relative'>
-        <Listbox.Button className='w-20 py-2 capitalize border-l rounded-r-lg bg-slate-800 text-slate-400 hover:text-slate-300 border-slate-700 hover:bg-slate-600'>
+        <Listbox.Button className='w-20 py-2 capitalize border-l bg-slate-800 text-slate-400 hover:text-slate-300 border-slate-700 hover:bg-slate-600'>
           {priority}
         </Listbox.Button>
         <Listbox.Options className='absolute right-0 z-10 p-1 mt-1 space-y-2 text-sm rounded-lg shadow-md top-10 w-36 bg-slate-100'>
@@ -45,6 +37,14 @@ const InputField = ({ todo, setTodo, handleAdd, priority, setPriority }: props) 
           ))}
         </Listbox.Options>
       </Listbox>
+
+      <button
+        type='submit'
+        className='flex items-center px-5 py-2 font-bold uppercase border-l rounded-r-lg bg-slate-800 text-slate-200 border-slate-700 hover:bg-slate-600'>
+        <span>
+          <AiOutlinePlus className='text-white' />
+        </span>
+      </button>
     </form>
   );
 };
