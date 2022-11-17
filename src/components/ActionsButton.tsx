@@ -35,18 +35,30 @@ const ActionsButton = ({ todo, handleEdit, handleDelete, handleCompleted }: prop
                 transition={{ duration: 0.15 }}
                 static
                 className='absolute right-0 z-10 p-1 space-y-2 text-sm rounded-lg shadow-md top-10 w-36 bg-slate-100'>
-                <Menu.Item>
+                <Menu.Item
+                  as={motion.div}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}>
                   <div className={`${todo.completed && 'pointer-events-none'} rounded-md`}>
                     <EditButton todo={todo} handleEdit={handleEdit} />
                   </div>
                 </Menu.Item>
-                <Menu.Item>
+                <Menu.Item
+                  as={motion.div}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}>
                   <div className={`${todo.completed && 'pointer-events-none'} rounded-md`}>
                     <CompleteButton todo={todo} handleCompleted={handleCompleted} />
                   </div>
                 </Menu.Item>
                 <div className='border-t'></div>
-                <Menu.Item>
+                <Menu.Item
+                  as={motion.div}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}>
                   <div className='rounded-md'>
                     <DeleteButton todo={todo} handleDelete={handleDelete} />
                   </div>
